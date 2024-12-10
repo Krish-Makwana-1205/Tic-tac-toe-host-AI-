@@ -132,6 +132,32 @@ function disable_all(){
         bools[i] = true;
     }
 }
+function enable(){
+    for(let i = 0; i < 9; i++){
+        bools[i] = false;
+    }
+    count = 0;
+    toggle = false;
+    b1.innerHTML = '-';
+    b2.innerHTML = '-';
+    b3.innerHTML = '-';
+    b4.innerHTML = '-';
+    b5.innerHTML = '-';
+    b6.innerHTML = '-';
+    b7.innerHTML = '-';
+    b8.innerHTML = '-';
+    b9.innerHTML = '-';
+    b2.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b3.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b4.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b5.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b6.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b7.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b8.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b9.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    b1.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
+    result.innerText = "";
+}
 function nums(event){
     if(event.target == b1){
         return 1;
@@ -196,7 +222,6 @@ function bot_plays(){
     if(prev != null){
         prev.style.backgroundColor = 'rgba(32, 32, 219, 0.324)';
     }
-    console.log("Running");
     temp.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
     prev = temp;
     temp.innerHTML = 'O';

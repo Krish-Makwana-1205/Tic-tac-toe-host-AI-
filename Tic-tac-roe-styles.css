@@ -26,3 +26,7 @@ button:disabled{
 #result{
     font-size: x-large;
 }
+#play{
+    background-color: rgb(106, 240, 122);
+    border-radius: 30px;
+}

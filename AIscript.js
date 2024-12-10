@@ -7,6 +7,7 @@ let b6 = document.getElementById("b6");
 let b7 = document.getElementById("b7");
 let b8 = document.getElementById("b8");
 let b9 = document.getElementById("b9");
+let result = document.getElementById("result");
 let prev;
 let count = 0;
 const bools = [];
@@ -14,7 +15,6 @@ for(let i = 0; i < 9; i++){
     bools[i] = false;
 }
 let toggle = false;
-let demo;
 function change(event){
     if(bools[nums(event)-1] == true){
         return ;
@@ -28,6 +28,12 @@ function change(event){
     event.target.innerHTML = 'X';
     bools[nums(event)-1] = true;
     if(goal_state(event)){
+        if(count != 9){
+        result.innerText = "You Won";
+        }
+        else{
+            result.innertext = "Draw";
+        }
         return ;
     }
     bot_plays();
@@ -106,6 +112,7 @@ function goal_state(event){
         }
     }
     if(count == 9){
+        result.innerText = "Draw";
         b1.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
         b2.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
         b3.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
@@ -120,6 +127,7 @@ function goal_state(event){
     return false;
 }
 function disable_all(){
+    
     for(let i = 0; i < 9; i++){
         bools[i] = true;
     }
@@ -220,7 +228,9 @@ function bot_plays(){
     else if(bot == 9){
         b9 = temp;
     }
-    goal_state_bot(temp);
+    if(goal_state_bot(temp)){
+        result.innerText="AI wins";
+    }
 }
 function goal_state_bot(temp){
     if(temp == b1 || temp == b2 || temp == b3){
@@ -229,7 +239,7 @@ function goal_state_bot(temp){
             b2.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b3.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b4 || temp == b5 || temp == b6){
@@ -238,7 +248,7 @@ function goal_state_bot(temp){
             b5.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b6.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b7 || temp == b8 || temp == b9){
@@ -247,7 +257,7 @@ function goal_state_bot(temp){
             b8.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b9.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b4 || temp == b1 || temp == b7){
@@ -256,7 +266,7 @@ function goal_state_bot(temp){
             b4.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b7.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b2 || temp == b5 || temp == b8){
@@ -265,7 +275,7 @@ function goal_state_bot(temp){
             b5.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b8.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b3 || temp == b6 || temp == b9){
@@ -274,7 +284,7 @@ function goal_state_bot(temp){
             b6.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b9.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b1 || temp == b5 || temp == b9){
@@ -283,7 +293,7 @@ function goal_state_bot(temp){
             b5.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b9.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(temp == b7 || temp == b5 || temp == b3){
@@ -292,7 +302,7 @@ function goal_state_bot(temp){
             b5.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             b7.style.backgroundColor = 'rgba(59, 227, 30, 0.731)';
             disable_all();
-            return ;
+            return true;
         }
     }
     if(count == 9){

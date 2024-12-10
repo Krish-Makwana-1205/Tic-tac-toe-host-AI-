@@ -1,0 +1,25 @@
+#Box{
+    height: 100vh;
+    width: 100vw;
+    display: grid; 
+    grid-template-rows: 30vh 30vh 30vh;
+    margin:2vh 20vw 2vh 20vw;
+    grid-template-columns: 15vw 15vw 15vw;
+    align-items: center;
+    z-index: 100;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+}
+html{
+    background-color: rgba(167, 156, 239, 0.434); 
+}
+button{
+    font-size: x-large;
+    background-color: rgba(32, 32, 219, 0.324);
+}
+button:disabled{
+    background-color: white;
+    font-size: x-large;
+    font-weight: bold;
+}

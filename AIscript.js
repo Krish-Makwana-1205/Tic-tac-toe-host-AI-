@@ -14,6 +14,7 @@ for(let i = 0; i < 9; i++){
     bools[i] = false;
 }
 let toggle = false;
+let demo;
 function change(event){
     if(bools[nums(event)-1] == true){
         return ;
